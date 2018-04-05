@@ -5,10 +5,15 @@
 //  Created by 김하영 on 2018. 4. 3..
 //  Copyright © 2018년 HAYOUNG_KIM. All rights reserved.
 //
-
-
-//모르게따아아아아아아
 #include <stdio.h>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool comp(int a, int b){
+    return a>b;
+}
 
 int main(){
     int n;
@@ -18,16 +23,27 @@ int main(){
         return -1;
     }
     else{
+        vector<int> arr;
         int temp=n;
         int sum=0;
-        while(temp>10){
+        temp=temp/10;
+        while(temp>0){
+            arr.push_back(temp%10);
             sum=sum+temp/10;
-            temp=temp%10;
+            temp=temp/10;
         }
-        if(temp/3==0){
+       // sort(arr.begin(),arr.end(),comp);
+        sort(arr.begin(),arr.end());
+        
+        for(int i=0; i<arr.size(); i++)
+            sum=sum+arr[i];
+        if(sum%3 ==0 ) printf("we");
+        else{
             
         }
     }
+
+    return 0;
 }
 
 
