@@ -5,6 +5,7 @@
 //  Created by 김하영 on 2018. 4. 3..
 //  Copyright © 2018년 HAYOUNG_KIM. All rights reserved.
 //
+/*
 #include <stdio.h>
 #include <vector>
 #include <algorithm>
@@ -35,15 +36,70 @@ int main(){
        // sort(arr.begin(),arr.end(),comp);
         sort(arr.begin(),arr.end());
         
+        bool flag=true;
+        while(flag){
         for(int i=0; i<arr.size(); i++)
             sum=sum+arr[i];
-        if(sum%3 ==0 ) printf("we");
-        else{
+            if(sum%3 ==0){
+                printf("we");
+                
+            }
+            else{
+            
+            }
             
         }
     }
 
     return 0;
+}*/
+
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+void thirty() {
+    int n; //입력수
+    int arr[6];
+    cin >> n;
+    int digit = 0;
+    while (1) {
+        arr[digit] = n % 10; //
+        n = n / 10;
+        digit++; //자릿수 증가
+        if (n == 0) break;
+    }
+    int count = 0;
+    for (int i = 0; i < digit; i++){ ///gkgkgkgk
+        
+        if (arr[i] == 0) count++;
+    }
+    if (count == 0) {
+        cout << -1 << endl;
+        return;
+    } //10의 배수이어야 함
+    int S = 0;
+    for (int i = 0; i < digit; i++) {
+        S += arr[i];
+    }
+    if (S % 3 != 0) {
+        cout << -1 << endl;
+        return;
+    }
+    sort(arr, arr + digit);
+    for (int i = digit - 1; i >= 0; i--) {
+        cout << arr[i];
+    }
+    cout << endl;
 }
-
-
+int main()
+{
+    //ATM();
+    //Coin();
+    //Rope(); //아직못해쪄
+    //Change();
+    //Intern();
+    thirty();
+    return 0;
+}
